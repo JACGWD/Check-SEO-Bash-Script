@@ -1,0 +1,1 @@
+# Check SEO Bash Script
