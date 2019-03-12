@@ -26,12 +26,19 @@ find . -type f -name "*.html" -exec grep -H  \<img {} \; >> seo.txt && echo -e "
 echo " ------------------ List all alt tags ------------------ "  >> seo.txt && echo -e "\n" >> seo.txt &&
 find . -type f -name "*.html" -exec grep -H  alt\= {} \; >> seo.txt && echo -e "\n \n" >> seo.txt &&
 
+
 echo " ------------------ Count the number of image tags (first) and then count the number of images with Alt tags ------------------ "  >> seo.txt && echo -e "\n" >> seo.txt &&
 echo "Number of images " >> seo.txt &&
 find * -type f -name "*.html" -exec grep -H  \<img {} \; | grep -c img  >> seo.txt &&
+
+
 echo "Number of alt tags " >> seo.txt  &&
 find * -type f -name "*.html" -exec grep -H  \<img {} \; | grep -c alt >> seo.txt
+
+
 echo "Number of non-empty alt tags " >> seo.txt  &&
 find * -type f -name "*.html" -exec grep -H  \<img {} \; | grep -c alt\="*" >> seo.txt && echo -e "\n \n" >> seo.txt &&
+
+
 echo " ------------------ Non web files to delete ------------------ "  >> seo.txt && echo -e "\n" >> seo.txt &&
 find . -iregex '.*\.\(ai\|eps\|psd|\indd|\tif|\tiff|\bmp\)' -printf '%f\n' >> seo.txt 
